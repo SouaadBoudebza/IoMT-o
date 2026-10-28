@@ -1,0 +1,56 @@
+# =====================================================================
+# IoMT-o: SPARQL Queries for Competency Questions (CQs)
+# Paper: "IoMT-o: A Holistic Ontology with SWRL Reasoning for Semantic 
+# Discovery in the Internet of Medical Things"
+# =====================================================================
+
+# Définition du préfixe pour votre ontologie (à adapter si votre IRI change)
+PREFIX iomt: <http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+# ---------------------------------------------------------------------
+# CQ1: Which wearable devices measure heart rate to monitor "sleep disorder"?
+# Explanation: Finds connected medical devices of type "Wearable" that 
+# are inferred to be used for the Sleep_Disorder individual.
+# ---------------------------------------------------------------------
+SELECT ?device
+WHERE {
+  ?device rdf:type iomt:Connected-Medical-Device ;
+          iomt:hasType "Wearable" ;
+          iomt:used_for iomt:Sleep_Disorder .
+}
+
+
+# ---------------------------------------------------------------------
+# CQ3: Which IoMT services can be associated with a specific medical sensor?
+# Explanation: Finds all IoMT services implemented by the 3-Axis Accelerometer.
+# ---------------------------------------------------------------------
+SELECT ?service
+WHERE {
+  iomt:Accelerometer_3Axis iomt:implements ?service .
+}
+
+
+# ---------------------------------------------------------------------
+# CQ4: Which diseases can be monitored using a specific connected medical device?
+# Explanation: Finds all diseases the Connected_Bracelet is inferred to be used for.
+# ---------------------------------------------------------------------
+SELECT ?disease
+WHERE {
+  iomt:Connected_Bracelet iomt:used_for ?disease .
+}
+
+
+# ---------------------------------------------------------------------
+# CQ5: Can a single smart sensor substitute all sensors integrated into 
+# a specific medical device?
+# Explanation: Finds sensors that implement services capable of outputting 
+# body movements (e.g., for smart sensor substitution).
+# ---------------------------------------------------------------------
+SELECT ?sensor ?service
+WHERE {
+  ?sensor rdf:type iomt:Medical-Sensor ;
+          iomt:implements ?service .
+  ?service iomt:hasOutput iomt:Body_Movements .
+}

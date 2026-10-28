@@ -1,0 +1,1105 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o/"
+     xml:base="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o/"
+     xmlns:org="http://www.w3.org/ns/org#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:IoMT-o="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#"
+     xmlns:schema="http://schema.org/"
+     xmlns:untitled-ontology-20="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o">
+        <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/ssn/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasInput"/>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasOutput"/>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hosts -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hosts">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/inDeployment"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Deployment"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Sensor"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/isHostedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/madeObservation"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/implements"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#implements -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#implements">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Sensor"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/observes"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/detects"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasDeployment"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Deployment"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasSubSystem"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/System"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/implements"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.w3.org/ns/ssn/hasSubSystem"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/System"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasInput"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Input"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasOutput"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Output"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/implementedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/System"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#is_indicator -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#is_indicator">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Observable-property"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Disease"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#observes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#observes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Sensor"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/isHostedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/madeObservation"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/implements"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Observable-property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#plateforme-provider -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#plateforme-provider">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#used_for -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#used_for">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/hosts"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/System"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Disease"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#changedBy -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#changedBy">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasMember -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasMember">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasMembership -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasMembership">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Membership"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasPrimarySite -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasPrimarySite">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasRegisteredSite -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasRegisteredSite">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasSubOrganization -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasSubOrganization">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasUnit -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#hasUnit">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#headOf -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#headOf">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#holds -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#holds">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Membership"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#linkedTo -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#linkedTo">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#memberOf -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#memberOf">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#organization -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#organization">
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#originalOrganization -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#originalOrganization">
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#postIn -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#postIn">
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#resultingOrganization -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#resultingOrganization">
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#subOrganizationOf -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#subOrganizationOf">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#transitiveSubOrganizationOf -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#transitiveSubOrganizationOf">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#unitOf -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#unitOf">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/ssn/hasInput -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/ssn/hasInput">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Observable-property"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/ssn/hasOutput -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/ssn/hasOutput">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Observable-property"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#QoS -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#QoS">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasLocation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasProtocole -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasProtocole">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#typeProtocole -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#typeProtocole">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasInput"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Input"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasOutput"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Output"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/implementedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/System"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#typeService -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#typeService">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#BusinessEntity -->
+
+    <rdf:Description rdf:about="http://purl.org/goodrelations/v1#BusinessEntity">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/hosts"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/System"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Connected Medical Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Disease -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Disease">
+        <rdfs:label>Disease</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Smart-Medical-Service"/>
+        <rdfs:label>IoMT Service</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Actuator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Actuator"/>
+        <rdfs:label>Medical Actuator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Observable-property -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Observable-property">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdfs:label>Medical Observable Property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Sensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/System"/>
+        <rdfs:label>Medical Sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-actuatable-property -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-actuatable-property">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ActuatableProperty"/>
+        <rdfs:label>Medical Actuatable Property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Smart-Medical-Service -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Smart-Medical-Service">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+        <rdfs:label>Smart Medical Service</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#healthcare-organisation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#healthcare-organisation">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:label>Healthcare Organization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/org#FormalOrganization -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#FormalOrganization">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Organization -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#Organization">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/org#OrganizationalCollaboration -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#OrganizationalCollaboration">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Sample -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/sosa/Sample">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasProperty"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Sensor -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/sosa/Sensor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/isHostedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Post"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Accelerometer_3Axis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Accelerometer_3Axis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Sensor"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/isHostedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/madeObservation"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/detects"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/implements"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/implements"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdf:type>
+        <IoMT-o:implements rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Movement_Classification_Service"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Body_Movements -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Body_Movements">
+        <rdf:type rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Observable-property"/>
+        <IoMT-o:is_indicator rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Sleep_Disorder"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected_Bracelet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected_Bracelet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/sosa/hosts"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/System"/>
+            </owl:Restriction>
+        </rdf:type>
+        <IoMT-o:hosts rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Accelerometer_3Axis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Movement_Classification_Service -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Movement_Classification_Service">
+        <rdf:type rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/ssn/hasOutput"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/ssn/Output"/>
+            </owl:Restriction>
+        </rdf:type>
+        <IoMT-o:hasOutput rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Body_Movements"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Sleep_Disorder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Sleep_Disorder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Disease"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/ns/org#Organization"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/org#hasMember"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/org#Organization"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/service1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/mp1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/dmc1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/ms1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/disease1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/prm1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Medical-Sensor"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/ms1"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#observes"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/ms1"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/prm1"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#IoMT-service"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/service1"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasInput"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/service1"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/prm1"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#implements"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/ms1"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/service1"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hasOutput"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/service1"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/mp1"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#hosts"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/dmc1"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/ms1"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#is_indicator"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/mp1"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/disease1"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#Connected-Medical-Device"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/dmc1"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#implements"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/ms1"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/service1"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/IoMT-o#used_for"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/dmc1"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/souad/ontologies/2026/9/untitled-ontology-20/disease1"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

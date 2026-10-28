@@ -1,0 +1,20 @@
+# =====================================================================
+# IoMT-o: SWRL Inference Rules
+# Paper: "IoMT-o: A Holistic Ontology with SWRL Reasoning for Semantic 
+# Discovery in the Internet of Medical Things"
+# =====================================================================
+
+# Rule 1: Inferring diseases treated by a device.
+# Explanation: If a device hosts a sensor that implements a service outputting 
+# a medical property, and that property indicates a disease, then the device 
+# is used for that disease.
+
+Medical-Connected-Device(?dmc1) ^ hosts(?dmc1, ?ms1) ^ implements(?ms1, ?service1) ^ hasOutput(?service1, ?mp1) ^ is_indicator(?mp1, ?disease1) -> used_for(?dmc1, ?disease1)
+
+
+# Rule 2: Inferring compatible IoMT services.
+# Explanation: If a medical sensor observes a property, and a service takes 
+# this same property as input, the sensor can implement the service 
+# (e.g., smart sensor adapting its behavior).
+
+Medical-Sensor(?ms1) ^ observes(?ms1, ?prm1) ^ IoMT-Service(?service1) ^ hasInput(?service1, ?prm1) -> implements(?ms1, ?service1)
